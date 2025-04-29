@@ -5,5 +5,7 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
-phonic-adviser-458302-h2-c29f0368e134.json
+phonic-adviser-*.json
+*.json
+
 
