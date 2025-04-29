@@ -27,9 +27,9 @@ test.describe('Login Page', () => {
 
     test.afterEach(async ({ page }, testInfo) => {
         const status = testInfo.status === 'passed' ? '✅' : '❌';
-        const updateSheet = new GoogleSheet();
+        const googleSheet = new GoogleSheet();
 
-        await updateSheet.updateSheet(currentTestName, status);
+        await googleSheet.updateSheet(currentTestName, status);
     });
 
     test('TC-012 Login Success', async ({ page }) => {
