@@ -19,7 +19,6 @@ test.describe('Register Page', () => {
         const loginPage = new LoginPage(page);
         const registerPage = new RegisterPage(page);
 
-
         await page.goto(data.OddsCamp);
         await loginPage.clickRegister();
         await expect(page.getByRole('heading', { name: 'Create your account' })).toBeVisible();
@@ -120,7 +119,7 @@ test.describe('Register Page', () => {
         await expect(registerPage.showErrorMessage('Password confirmation can\'t be blank'));
     });
 
-    test('TC- 096 Wrong Password Confirmation', async ({ page }) => {
+    test('TC- 009 Wrong Password Confirmation', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const registerPage = new RegisterPage(page);
 
@@ -132,7 +131,7 @@ test.describe('Register Page', () => {
         await expect(registerPage.showErrorMessage('Invalid Password'));
     });
 
-    test('TC- 009 Enter a code with less than 6 digits', async ({ page }) => {
+    test('TC- 010 Enter a code with less than 6 digits', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const registerPage = new RegisterPage(page);
 
@@ -144,7 +143,7 @@ test.describe('Register Page', () => {
         await expect(registerPage.showErrorMessage('Password must be at least 6 characters long'));
     });
 
-    test('TC- 010 Used Email', async ({ page }) => {
+    test('TC- 011 Used Email', async ({ page }) => {
         const loginPage = new LoginPage(page);
         const registerPage = new RegisterPage(page);
 

@@ -11,7 +11,7 @@ import { GoogleSheet } from '../utils/GoogleSheet-util.ts';
 const data = {
     OddsCamp: 'https://odds-camp.onrender.com/users/sign_in',
 };
-const updateSheet = new GoogleSheet();
+
 let currentTestName = '';
 
 
@@ -25,11 +25,12 @@ test.describe('Login Page', () => {
         await page.goto(data.OddsCamp);
     });
 
-    test.afterEach(async ({ }, testInfo) => {
+    test.afterEach(async ({ page }, testInfo) => {
         const status = testInfo.status === 'passed' ? '✅' : '❌';
+        const updateSheet = new GoogleSheet();
 
         await updateSheet.updateSheet(currentTestName, status);
-      });
+    });
 
     test('TC-012 Login Success', async ({ page }) => {
         const loginPage = new LoginPage(page);
